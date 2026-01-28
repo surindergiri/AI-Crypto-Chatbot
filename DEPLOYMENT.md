@@ -12,7 +12,7 @@ Because the backend requires **FFmpeg** (for voice processing), we recommend dep
 2.  **Sign up/Login to [Render.com](https://render.com/)**.
 3.  Click **New +** and select **Web Service**.
 4.  Connect your GitHub repository.
-5.  **Settings**:
+5.  **Settings**:   
     *   **Root Directory**: `backend` (Important!)
     *   **Runtime**: Docker
     *   **Instance Type**: Free (or Starter if you need more RAM)

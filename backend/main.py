@@ -337,4 +337,12 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
                      
     except WebSocketDisconnect:
         print(f"Client {client_id} disconnected")
+    except RuntimeError as e:
+        # Starlette sometimes raises RuntimeError if receive is called after disconnect
+        if "disconnect" in str(e).lower():
+             print(f"Client {client_id} disconnected (RuntimeError)")
+        else:
+             print(f"RuntimeError in websocket: {e}")
+    except Exception as e:
+        print(f"Unexpected error in websocket: {e}")
 
