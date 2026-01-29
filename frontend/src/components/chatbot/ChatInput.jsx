@@ -56,7 +56,13 @@ const ChatInput = ({ onSendMessage, isListening, setIsListening, onAudioChunk, o
 
     return (
         <form onSubmit={handleSubmit} className="p-4 bg-white/40 backdrop-blur-md relative">
-            <div className="flex items-center gap-2 bg-white rounded-full p-1.5 shadow-lg shadow-indigo-500/5 border border-indigo-50">
+            <div className="flex items-center gap-2 bg-white rounded-full p-1.5 shadow-lg shadow-indigo-500/5 border border-indigo-50 relative">
+                {isListening && (
+                    <span className="absolute left-1.5 top-1.5 w-10 h-10 rounded-full bg-rose-400 opacity-20 animate-ping"></span>
+                )}
+                {isListening && (
+                    <span className="absolute left-1.5 top-1.5 w-10 h-10 rounded-full bg-rose-400 opacity-20 animate-pulse"></span>
+                )}
                 <button
                     type="button"
                     onClick={handleVoiceClick}
@@ -85,17 +91,6 @@ const ChatInput = ({ onSendMessage, isListening, setIsListening, onAudioChunk, o
                 </button>
             </div>
 
-            {isListening && (
-                <div className="absolute -top-12 left-0 w-full flex justify-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                        <div key={i} className="w-1 bg-indigo-400 animate-wave" style={{
-                            height: '20px',
-                            animationDelay: `${i * 0.1}s`,
-                            animationDuration: '0.5s'
-                        }}></div>
-                    ))}
-                </div>
-            )}
         </form>
     );
 };
