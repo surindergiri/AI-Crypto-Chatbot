@@ -29,10 +29,11 @@ const ChatHeader = ({ onClose, status = 'Online' }) => {
             <div className="flex items-center gap-4">
                 <button
                     onClick={() => navigate('/docs')}
-                    className="p-2 text-slate-400 hover:text-indigo-600 hover:bg-slate-100/50 rounded-full transition-all group"
+                    className="flex items-center gap-1 px-4 py-2 text-slate-500 hover:text-indigo-600 hover:bg-slate-100/50 rounded-full transition-all group"
                     title="Documentation"
                 >
                     <Book className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    <span className="font-bold text-sm">Docs</span>
                 </button>
                 <div className="w-16 h-10 relative group">
                     <img
